@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>107-事件-默认行为和右键菜单.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 200px;
+			background-color: lime;
+			display: none;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			document.oncontextmenu = function(ev){
+				var oEvent = ev || event;
+				// alert(1);
+				oBox.style.display = 'block';
+				oBox.style.left = oEvent.clientX + 'px';
+				oBox.style.top = oEvent.clientY + 'px';
+				return false;
+				// 阻止默认行为 第一种方法
+				// event.preventDefault();
+				// 阻止默认行为 第二种方法
+			}
+			document.onclick = function(){
+				oBox.style.display = 'none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">aaa</div>
+</body>
+</html>

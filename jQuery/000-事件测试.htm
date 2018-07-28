@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-事件测试.html</title>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<!-- <script type="text/javascript" src="js/kquery-1.0.0.js"></script> -->
+	<script type="text/javascript">
+		$(function(){
+			// 解绑事件 
+			function test1(){
+				alert('click1');
+			}
+			$('button').on('click',test1);
+			$('button').on('click',function(){
+				alert('click2');
+			});
+			$('button').on('mouseover',function(){
+				alert('mouseover');
+			});
+			$('button').on('mouseout',function(){
+				alert('mouseout');
+			});
+			// off 解绑事件 内容为空就解绑所有事件  里面也可以写具体的事件
+			// $('button').off();
+			// $('button').off('click');
+			// $('button').off('mouseover');
+		})
+	</script>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+</body>
+</html>

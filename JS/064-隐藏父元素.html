@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>064-隐藏父元素.html</title>
+	<script type="text/javascript">
+		// parentNode 子节点的父节点对象
+		window.onload = function(){
+			var oUl1 = document.getElementById('ul1');
+			var aA = document.getElementsByTagName('a');
+			for (var i = 0; i < aA.length; i++) {
+				aA[i].onclick = function(){
+					this.parentNode.style.display = 'none';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li>aaa1<a href="javascript:;">隐藏</a></li>
+		<li>aaa2<a href="javascript:;">隐藏</a></li>
+		<li>aaa3<a href="javascript:;">隐藏</a></li>
+		<li>aaa4<a href="javascript:;">隐藏</a></li>
+		<li>aaa5<a href="javascript:;">隐藏</a></li>
+		<li>aaa6<a href="javascript:;">隐藏</a></li>
+	</ul>
+</body>
+</html>

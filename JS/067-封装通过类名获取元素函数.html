@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>067-封装通过类名获取元素函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style:none;
+			width: 100%;
+			height: 50px;
+			border: 1px solid #000;
+		}
+		#box1>div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function zhangyan(obj,sClass){
+			var result = [];
+			// var aBiao = obj.children;
+			// 两种方法都可以  * 代表所有
+			var aBiao = obj.getElementsByTagName('*');
+			for (var i = 0; i < aBiao.length; i++) {
+				if (aBiao[i].className == sClass) {
+					result.push(aBiao[i]);
+				}
+			}
+			return result;
+		}
+		window.onload = function(){
+			var oUl = document.getElementById('ul1');
+			// var aLi = oUl.getElementsByClassName('box');
+			var aLi = zhangyan(oUl,'box');
+			// console.log(aLi);
+			for(i in aLi){
+				aLi[i].style.background = 'pink';
+			}
+			var oBox = document.getElementById('box1');
+			var aBox = zhangyan(oBox,'box');
+			for(i in aBox){
+				aBox[i].style.background = 'lime';
+			}
+			var oBox2 = document.getElementById('box2');
+			var aShuai = zhangyan(oBox2,'shuai');
+			for (var i = 0; i < aShuai.length; i++) {
+				aShuai[i].style.background = 'red';
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li></li>
+		<li class="box"></li>
+		<li></li>
+		<li class="box"></li>
+		<li></li>
+		<li class="box"></li>
+	</ul>
+	<div id="box1">
+		<div class="box"></div>
+		<div></div>
+		<div class="box"></div>
+		<div></div>
+	</div>
+	<div id="box2">
+		<div></div>
+		<div class="shuai"></div>
+		<div></div>
+		<div class="shuai"></div>
+		<div></div>
+		<div class="shuai"></div>
+		<span></span>
+		<span class="shuai"></span>
+		<span class="shuai"></span>
+		<span></span>
+		<span class="shuai"></span>
+		<span></span>
+		<span></span>
+	</div>
+</body>
+</html>

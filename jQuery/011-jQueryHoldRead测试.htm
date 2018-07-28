@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-jQueryHoldRead测试.html</title>
+</head>
+<body>
+	<input type="button" id="btn" value="恢复">
+</body>
+<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$.holdReady(true);
+	$(function(){
+		alert('入口执行了');
+	})
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		$.holdReady(false);
+	}
+</script>
+</html>

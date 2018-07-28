@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>115-事件-滚动条滚动文字.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 400px;
+			height: 20px;
+			background-color: violet;
+			position: relative;
+		}
+		#btn{
+			width: 50px;
+			height: 20px;
+			background-color: aqua;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		#box1{
+			width: 400px;
+			height: 400px;
+			border: 1px solid lime;
+			box-sizing: border-box;
+			position: relative;
+			overflow: hidden;
+		}
+		#box2{
+			width: 400px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			oBtn.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oBtn.offsetLeft;
+			document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				var l = oEvent.clientX - disX;
+				if (l < 0) {
+					l = 0;
+				}else if (l >= oBox.offsetWidth - oBtn.offsetWidth) {
+					l = oBox.offsetWidth - oBtn.offsetWidth;
+				}
+				console.log(l / (oBox.offsetWidth - oBtn.offsetWidth));
+				var scale = (l / (oBox.offsetWidth - oBtn.offsetWidth));
+				oBtn.style.left = l + 'px';
+				// oBox1.style.width = 400 * scale + 'px';
+				// oBox1.style.height = 400 * scale + 'px';
+				oBox2.style.top = (-oBox2.offsetHeight + oBox1.offsetHeight) * scale + 'px';
+				}
+			document.onmousewheel = function(ev){
+				var oEvent = ev || event;
+				console.log(ev.wheelDelta);
+				if (oEvent.wheelDelta > 0) {
+					
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="btn"></div>
+	</div>
+	<div id="box1">
+		<div id="box2">
+			习近平的青年说 习近平在北大座谈会上的讲话
+习近平的“五四”寄语  习近平的考察引起热烈反响
+纪实文学《梁家河》在陕首发
+黄河故道起绿洲：三代人68年培育平原林海的故事
+知识产权保护需各国携手 《共产党宣言》的前世今生
+让英烈荣光永续传扬—写在英烈保护法施行之际
+央行:投资者开展境外投资不得将资金汇出境外购汇
+教育部：提高乡村教师待遇 认真落实津补贴政策
+时空对话·不朽的马克思②：有一种友谊叫“马恩”
+地铁遇住宅等敏感目标环评该如何审批？环境部回应
+沿海渔港建设规划印发：建10大渔港群、93渔港经济区
+一季度查处煤矿安全隐患13.13万条
+小米递交招股书赴港上市 你看好吗？
+上海推出首批“养老顾问” 提高长者“幸福指数”
+香港旅游业复苏明显 “五一”内地游客增22.4%
+“中国芯”概念大热，上市公司扎堆揭秘最新研发进展
+西湖断桥白堤苏堤，永久禁行非机动车！
+一季度收入排行榜：5省份人均可支配收入过万
+日本近六成民众反对安倍修宪 希望优先发展经济
+李明博被控16宗罪后迎首场预审 本人将不出庭
+保驾护航还是向朝施压？美军8架F-22“猛禽”战机抵韩
+外媒：特朗普几乎已决定退出伊核协议
+一伙武装分子在索马里绑架一名国际红十字会护士
+美国海关发现数千件伊拉克走私文物 将归还伊拉克
+女子怀里婴儿不停哭泣 司机起疑报警引出惊人内幕
+女学霸辞职卖包子，一个70块，拿下亚洲第一
+湖北秭归孝心女硕士卖橙救父 爱心人士接力帮困
+女子从车轮下救出女童 见义勇为受重伤获奖3万元
+老师所出化学试卷成“网红”:考试范围是星辰大海
+父亲好吃懒做还家暴 12岁女孩替母写诉状：离婚
+娶不到老他们打起“越南新娘”的主意 却人财两空
+家有三套房偷遍杭城 男子一句话惊呆民警
+男子因情人投向他人怀抱：制造交通事故撞死情敌
+香港警方破获贩毒案 涉案金额约6000万港元
+广东揭阳发生2死1伤命案 凶手系二级精神病人
+湖南警方深夜扫黄 大群帅哥靓女被抓现场曝光
+		</div>
+	</div>
+</body>
+</html>

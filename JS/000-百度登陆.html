@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-百度登陆.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 900px;
+			margin: 100px auto;
+		}
+		#box1{
+			margin-bottom: 20px;
+		}
+		#box1 label{
+			display: block;
+			width: 50px;
+			height: 40px;
+			line-height: 40px;
+			vertical-align: center;
+			float: left;
+		}
+		#box1 input{
+			width: 350px;
+			height: 40px;
+			padding-left: 10px;
+		}
+		#box1 input:focus{
+			color: #488ee7;
+			outline: 0;
+		}
+		#box2{
+			margin-bottom: 20px;
+		}
+		#box2 input{
+			width: 350px;
+			height: 40px;
+			padding-left: 10px;
+		}
+		#box3{
+			margin-bottom: 20px;
+			margin-left: 15px;
+		}
+		#box3 input{
+			width: 350px;
+			height: 40px;
+			padding-left: 10px;
+		}
+		#box4{
+			margin-bottom: 20px;
+		}
+		#box4 .smsBtn{
+			width: 165px;
+			height: 40px;
+		}
+		#box4 input{
+			width: 165px;
+			height: 40px;
+			padding-left: 10px;
+		}
+		#box5{
+			height: 20px;
+			margin-left: 50px;
+			font-size: 12px;
+		}
+		#box5 input{
+			 
+			text-align: center;
+		}
+		#box5 label{
+			font-size: 10px;
+			color: #666;
+		}
+		#box5 a{
+			text-decoration: none;
+			color: #3f89ec;
+			font-size: 10px;
+		}
+		#box6 input{
+			width: 370px;
+			height: 50px;
+			background-color: #3f89ec;
+			color: #fff;
+			font-size: 16px;
+			display: block;
+			cursor: pointer;
+			border-radius:3px;
+			border:0px;
+			margin-top: 20px;
+			margin-left: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			// 获取元素
+			var oForm = document.forms[0];
+			var oUserName = oForm.username;
+			var aCancel = document.querySelectorAll('.cancel');
+			// 初始化
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<form action="https://www.kuazhu.com">
+			<div id="box1">
+				<label for="username">用户名</label>
+				<input type="text" name="username" id="username" placeholder="请设置用户名">
+				<span class="cancel" data-obj="username" style="display: none"></span>
+				<span class="msg"></span>
+			</div>
+			<div id="box2">
+				<label for="phone">手机号</label>
+				<input type="text" name="phone" id="phone" placeholder="可用于登录和找回密码">
+				<span class="cancel" style="display: none"></span>
+				<span class="msg"></span>
+			</div>
+			<div id="box3">
+				<label for="password">密码</label>
+				<input type="text" name="password" id="password" placeholder="请设置登录密码">
+				<span class="cancel" style="display: none"></span>
+				<span class="msg"></span>
+			</div>
+			<div id="box4">
+				<label for="code">验证码</label>
+				<input type="text" name="code" id="code" placeholder="请输入验证码">
+				<span class="cancel" style="display: none"></span>
+				<input type="button" id="smsBtn" value="获取短信验证码">
+				<span class="msg"></span>
+			</div>
+			<div id="box5">
+				<input type="checkbox" id="check">
+				<label>阅读并接受</label>
+				<a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>
+			</div>
+			<div id="box6">
+				<input type="button" value="注册">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

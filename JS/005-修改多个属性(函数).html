@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-修改多个属性(函数).html</title>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+	</style>
+	<script type="text/javascript">
+		// 函数 分为两部分 1.下图为 给函数添加一个变量  也就是(var oBox)定义变量  2. 执行（onmouseover="toRed()"）
+		function toRed(){
+			var oBox = document.getElementById('box');
+			oBox.style.width = '400px';
+			oBox.style.height = '400px';
+			oBox.style.backgroundColor= 'lime';
+		}
+		function toPink(){
+			var oBox = document.getElementById('box');
+			oBox.style.width = '200px';
+			oBox.style.height = '200px';
+			oBox.style.backgroundColor= 'pink';
+		}
+		// 定义一个函数
+		/*function toRed(){
+			document.getElementById('box').style.width = '400px';
+			document.getElementById('box').style.height = '400px';
+			document.getElementById('box').style.backgroundColor = 'lime';
+		}
+		function toPink(){
+			document.getElementById('box').style.width = '200px';
+			document.getElementById('box').style.height = '200px';
+			document.getElementById('box').style.backgroundColor = 'pink';
+		}*/
+	</script>
+</head>
+<body>
+	<div id="box" onmouseover="toRed()" onmouseout="toPink()"></div>
+</body>
+</html>

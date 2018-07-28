@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-皇帝上朝2.html</title>
+	<script type="text/javascript">
+		// 老师构造函数
+		(function(w){
+			function Teacher(){
+				this.student = [];
+			}
+			Teacher.prototype = {
+				constructor:Teacher,
+				__proto__:Object.prototype,
+				// 给对象(学生)上添加相应的方法
+				zhuce:function(){
+					this.student.push('xuesheng');
+				}
+			}
+			w.Teacher = Teacher;
+		})(window);
+		// 学生构造函数
+		(function(w){
+			function Student(){
+
+			}
+			Student.prototype = {
+				constructor:Student,
+				__proto__:Object.prototype,	
+			}
+			w.Student = Student;
+		})(window);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-选项卡案例.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background-color: pink;
+			border: 1px solid lime;
+			display: none;
+		}
+		.active{
+			background-color: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index = i;
+				aBtn[i].onclick = function(){
+					for (var j = 0; j < aBtn.length; j++) {
+						aBtn[j].className = '';
+						aDiv[j].style.display = 'none';
+					}
+					this.className = 'active';
+					aDiv[this.index].style.display = 'block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1" class="active">
+	<input type="button" value="按钮2">
+	<input type="button" value="按钮3">
+	<input type="button" value="按钮4">
+	<!-- 写到css里面没有写在行间样式的优先级高   写在行内的优先级是最高的 -->
+	<div style="display: block">内容1</div>
+	<div>内容2</div>
+	<div>内容3</div>
+	<div>内容4</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-修改多个属性.html</title>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- onmouseover , onmouseout 事件   行间样式 -->
+	<div id="box" onmouseover="document.getElementById('box').style.width = '400px';
+								document.getElementById('box').style.height = '400px';
+								 document.getElementById('box').style.backgroundColor = 'red'"; 
+					onmouseout="document.getElementById('box').style.width = '200px';
+								  document.getElementById('box').style.height = '200px';
+								   document.getElementById('box').style.backgroundColor = 'green'";></div>
+</body>
+</html>

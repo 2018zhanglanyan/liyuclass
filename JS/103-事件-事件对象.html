@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>103-事件-事件对象.html</title>
+	<style type="text/css">
+		body{
+			/*height: 200px;*/
+			border: 1px solid red;
+		}
+	</style>
+	<script type="text/javascript">
+		// document 指的是整个文档 （打开的整个页面，包括整个HTML页面结构）
+		// body没有默认的高度
+		window.onload = function(){
+			// document.body.onclick = function(){
+				// alert('ccc');
+			// }
+			/*document.onclick = function(){
+				alert('aaa');
+				console.log(document.childNodes[1]);
+				事件对象存在兼容性问题
+				console.log('X:',event.clientX);
+				console.log('Y:',event.clientY);
+			}*/
+			// 兼容性问题的处理 定义oEvent = ev || event;
+			document.onclick = function(ev){
+				var oEvent = ev || event;
+				console.log('X:',ev.clientX);
+				console.log('Y:',ev.clientY);
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

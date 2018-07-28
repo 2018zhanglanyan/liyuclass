@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-script标签的延迟和异步属性.html</title>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid tomato;
+		}
+	</style>
+	<!-- defer 延迟属性  添加该属性后,脚本文件会在整个页面都解析完毕后执行   async 异步属性 添加该属性后,脚本会立即下载执行,但不妨碍页面中的其他操作  -->
+	<!-- <script type="text/javascript" defer="defer" src="js/011-1.js"></script> -->
+	<script type="text/javascript" async="async" src="js/011-1.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>089-滚动顶部导航.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#nav{
+			width: 100%;
+			height: 100px;
+			background-color: pink;
+		}
+		#dongnav{
+			width: 100%;
+			height: 100px;
+			background-color: lime;
+			position: fixed;
+			top: 0px;
+		}
+		#content{
+			width: 100%;
+			height: 3000px;
+		}
+	</style>
+	<!-- <script type="text/javascript" src="js/tool.js"></script> -->
+	<script type="text/javascript">
+		window.onload = function(){
+			// var oNav = document.getElementById('nav');
+			var oDongnav = document.getElementById('dongnav');
+			var iTop = document.body.scrollTop || document.documentElement.scrollTop;
+			// var oContent = document.getElementById('content');
+		}
+	</script>
+</head>
+<body>
+	<div id="nav"></div>
+	<div id="dongnav"></div>
+	<div id="content">
+		你好<br>
+		可爱的小家伙
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-函数的参数</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	/*
+	function show(msg){
+		msg = msg || 'hello';
+		console.log(msg);
+	}
+	show();
+	*/
+
+	/*
+	function show(msg){
+		// msg = msg || 'hello';
+		if(typeof msg === 'undefined'){
+			msg = 'hello';
+		}
+		console.log(msg);
+	}
+	show('');
+	*/
+
+	/*
+	function show(name,msg='hello'){//有默认值的要写后面
+		console.log(msg,name);
+	}
+	show("Tom");
+	*/
+
+	/*
+	function show(name,{age=18,sex="女"}={}){
+		console.log(name,age,sex);
+	}
+	show("Tom",{age:18,sex:"男"});
+	*/
+
+
+	function show(name,...msg){
+		console.log(name,msg[0],msg[1]);
+	}
+	show("Tom",...['Tom',18]);
+
+
+</script>
+</html>

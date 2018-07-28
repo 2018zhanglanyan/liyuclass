@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本的显示隐藏测试.html</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button><button>隐藏</button>
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var slient = {
+		show:function($elem){
+			$elem.html('<p>我要显示了</p>');
+			$elem.show();
+			$elem.html($elem.html()+'<p>我显示了</p>');
+		},
+		hide:function($elem){
+			$elem.hide();
+		}
+	};
+	var $elem = $('#box');
+	// 显示
+		$('button').eq(0).on('click',function(){
+			slient.show($elem);
+		})
+	// 隐藏
+		$('button').eq(1).on('click',function(){
+			slient.hide($elem);
+		})
+</script>
+</html>

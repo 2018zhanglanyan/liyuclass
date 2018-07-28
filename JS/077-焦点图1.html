@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>077-焦点图1.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 1226px;
+			height: 460px;
+			position: absolute;
+			top: 0px;
+			left:0px;
+		}
+		li{
+			list-style: none;
+		}
+		.ul1 li{
+			width: 1226px;
+			height: 460px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		.ul1 li img{
+			width: 100%;
+			height: 100%;
+		}
+		.leftarrow,
+		.rightarrow{
+			/*display: inline-block;*/	
+			width: 30px;
+			height: 50px;
+			border-radius: 5px;
+			font-size: 30px;
+			color: #fff;
+			line-height: 50px;
+			text-align: center;	
+			position: absolute;
+			top: 205px;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.leftarrow:hover,
+		.rightarrow:hover{
+			background: rgb(0,0,0,0.3);
+		}
+		.rightarrow{
+			right: 0px;
+		}
+		.ul2{
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			margin-left: -66px;
+			z-index: 999;
+		}
+		.ul2 li{
+			/*display 可写可不写*/
+			/*display: inline-block;*/
+			float: left;
+			width: 10px;
+			height: 10px;
+			border:1px solid #ccc;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+		.active{
+			background: gray;
+		}
+	</style>
+	<script type="text/javascript" src="js/tool.js"></script>
+	<script type="text/javascript">
+		// 轮播图的两种方法  这是第一种 改变他的opcity
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var aImgbox = document.getElementById('img-box').children;
+			var oPrebtn = document.getElementById('prebtn');
+			var oNextbtn = document.getElementById('nextbtn');
+			var aBtnbox = document.getElementById('btn-box').children;
+			var now = 0;
+			var timer = null;
+			oNextbtn.onclick = function(){
+				now++;
+				if (now >= aBtnbox.length) {
+					now = 0;
+				}
+				tab();
+			}
+			oPrebtn.onclick = function(){
+				now--;
+				if (now < 0) {
+					now = aBtnbox.length - 1;
+				}
+				tab();
+			}
+			function tab(){
+				for (var i = 0; i < aBtnbox.length; i++) {
+					aImgbox[i].style.zIndex = 0;
+					aImgbox[i].style.opacity = 0;
+					aBtnbox[i].className = '';
+				}
+					aImgbox[now].style.zIndex = 30;
+					animation(aImgbox[now],{opacity:100},false);
+					aBtnbox[now].className = 'active';
+			}
+			for (var i = 0; i < aBtnbox.length; i++) {
+				aBtnbox[i].index = i;
+				aBtnbox[i].onclick = function(){
+					now = this.index;
+					tab();
+				}
+			}
+			timer = setInterval(function(){
+				oNextbtn.onclick();
+				// oPrebtn.onclick();
+			},2000)
+			oBox.onmouseover = function(){
+				clearInterval(timer);
+			}
+			oBox.onmouseout = function(){
+				timer = setInterval(function(){
+					oNextbtn.onclick();
+				},2000)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<ul class="ul1" id="img-box">
+			<li style="z-index: 30;"><img src="images/lunbo1.jpg"></li>
+			<li><img src="images/lunbo2.jpg"></li>
+			<li><img src="images/lunbo3.jpg"></li>
+		</ul>
+		<span class="leftarrow" id="prebtn">&lt;</span>
+		<span class="rightarrow" id="nextbtn">&gt;</span>
+		<ul class="ul2" id="btn-box">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

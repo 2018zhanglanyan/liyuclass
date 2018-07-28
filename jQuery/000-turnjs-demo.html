@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-turnjs-demo.html</title>
+	<style type="text/css">
+		.container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+		.book{
+			width: 922px;
+			height: 600px;
+			position: absolute;
+			top: -300px;
+			left: -661px;
+		}
+	</style>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="jq-chajian/turnjs4/lib/turn.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.book').turn();
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="book">
+			<div style="background-image: url(jq-chajian/turnjs4/samples/magazine/pages/10.jpg);"></div>
+			<div style="background-image: url(jq-chajian/turnjs4/samples/magazine/pages/9.jpg);"></div>
+			<div style="background-image: url(jq-chajian/turnjs4/samples/magazine/pages/8.jpg);"></div>
+			<div style="background-image: url(jq-chajian/turnjs4/samples/magazine/pages/7.jpg);"></div>
+			<div style="background-image: url(jq-chajian/turnjs4/samples/magazine/pages/6.jpg);"></div>
+			<div style="background-image: url(jq-chajian/turnjs4/samples/magazine/pages/5.jpg);"></div>
+		</div>
+	</div>
+</body>
+</html>

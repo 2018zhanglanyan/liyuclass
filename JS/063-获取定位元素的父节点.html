@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>063-获取定位元素的父节点.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1{
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+			margin: 100px auto;
+		}
+		#box2{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		// offsetParent 子节点绝对定位时，获取参考的父节点对象
+		window.onload = function(){
+			var oBox2 = document.getElementById('box2');
+			// console.log(oBox2.parentNode);
+			// oBox2.parentNode.style.backgroundColor = 'aqua';
+			oBox2.offsetParent.style.background = 'aqua';
+		}
+	</script>
+</head>
+<body>
+	<div id="box1">
+		<div id="box2"></div>
+	</div>
+</body>
+</html>

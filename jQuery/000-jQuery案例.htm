@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-jQuery案例.html</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/Fonts/fontawesome-all.min.css">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ccc;
+		}
+		.box1{
+			float: left;
+			position: absolute;
+			top: 0px;
+			left: 50%;
+			margin-left: -100px;
+		}
+		.box1:hover{
+			color: #ff6700;
+		}
+		.box1 .taobao{
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			background-color: #fff;
+			text-align: center;
+		}
+		.box1 .yimai{
+			width: 100px;
+			height: 0px;
+			/*display: none;*/
+			overflow: hidden;
+			background-color: #fff;
+		}
+		.box1 .yimai p{
+			text-align: center;
+			font-size: 12px;
+			color: rgb(100,100,100);
+			padding-top: 10px;
+		}
+		.box2{
+			float: left;
+			position: absolute;
+			top: 0px;
+			left: 50%;
+		}
+		.box2:hover{
+			color: #ff6700;
+		}
+		.box2 .shoucang{
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background-color: #fff;
+		}
+		.box2 .dianpu{
+			width: 100px;
+			height: 0px;
+			background-color: #fff;
+			/*display: none;*/
+			overflow: hidden;
+		}
+		.box2 .dianpu p{
+			text-align: center;
+			font-size: 12px;
+			color: rgb(100,100,100);
+			padding-top: 10px;
+		}
+		i{
+			transition: all 1s;			
+		}
+		.xuanzhuan{
+			transform: rotate(180deg);
+		}
+	</style>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.box1').mouseenter(function(){
+				$('.taobao i').addClass('xuanzhuan');
+				$('.yimai').stop(true,false);
+				$('.yimai').animate({
+					height:70,
+				},500)
+			})
+			$('.box1').mouseleave(function(){
+				$('.taobao i').removeClass('xuanzhuan');
+				$('.yimai').stop(true,false);
+				$('.yimai').animate({
+					height:0
+				},500)
+			})
+			$('.box2').mouseenter(function(){
+				$('.shoucang i').addClass('xuanzhuan');
+				$('.dianpu').stop(true,false);
+				$('.dianpu').animate({
+					height:70
+				},500)
+			})
+			$('.box2').mouseleave(function(){
+				$('.shoucang i').removeClass('xuanzhuan');
+				$('.dianpu').stop(true,false);
+				$('.dianpu').animate({
+					height:0
+				},500)
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box1">
+		<div class="taobao">我的淘宝<i class="fas fa-angle-down"></i></div>
+		<div class="yimai">
+			<p>已买到的宝贝</p>
+			<p>我的足迹</p>
+		</div>
+	</div>
+	<div class="box2">
+		<div class="shoucang">收藏夹<i class="fas fa-angle-down"></i></div>
+		<div class="dianpu">
+			<p>收藏到的宝贝</p>
+			<p>收藏的店铺</p>
+		</div>
+	</div>
+</body>
+</html>

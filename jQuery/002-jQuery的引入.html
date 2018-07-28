@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-jquery的引入.html</title>
+</head>
+<!-- 方法一 -->
+<!-- <script type="text/javascript" src="js/jquery-1.12.4.js"></script> -->
+<!-- 方法二  通过script标签引入CDN资源  为了确保jquery被引用，可以使用判断方法引入-->
+<script type="text/javascript" src="https://cdnjsx.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	window.jQuery || document.write('<script src="jq-chajian/jquery-1.12.4.js"><\/script>');
+</script>
+<script type="text/javascript">
+	$(function(){
+		alert('aaa');
+	})
+</script>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-jQuery操作class.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ccc;
+		}
+		.box2{
+			background-color: lime;
+		}
+	</style>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var oBtn = document.getElementsByTagName('button')[0];
+			oBtn.onclick = function(){
+				// 添加
+				// $('div').addClass('box1 box2');
+				// 删除
+				// $('div').removeClass('box2');
+				// 切换（存在就删除 不存在就添加）
+				$('div').toggleClass('box1 box2');
+			}
+		})
+	</script>
+</head>
+<body>
+	<button>点我</button>
+	<div class="box1 box2"></div>
+</body>
+</html>

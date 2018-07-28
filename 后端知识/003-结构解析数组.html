@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-结构解析数组.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	/*
+	var a = 1;
+		b = 2;
+		c = 3;
+	console.log(a,b,c);
+	*/
+
+	/*
+	let [a,b,c] = [1,2,3];
+	console.log(a,b,c);
+	*/
+
+	/*
+	let [a,b,c,d] = [1,2,3,4];
+	console.log(a,b,c,d);
+	*/
+
+
+	/*
+	let [a,[b,c],d] = [1,[2,3],4];
+	console.log(a,b,c,d);
+	*/
+
+	/*
+	let [a,[b,c],d] = [1,[2,3],4];
+	console.log(a,b,c,d);
+	*/
+
+	/*
+	let [a,b,c] = [1,2];
+	console.log(a,b,c);//undefined
+	*/
+
+	/*
+	let [a,b,c=1] = [1,2,undefined];
+	console.log(a,b,c);
+	*/
+	
+	/*
+	let [a,b,c=1] = [1,2,null];
+	console.log(a,b,c);
+	*/
+
+	/*
+	let [a,b,c=1] = [1,2,66];
+	console.log(a,b,c);
+	*/
+
+	let [a,b,c=1] = 11;
+	console.log(a,b,c);//等号后面必须是数组 否则会报错 只传一个值的话默认的是第一个值
+
+</script>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="CSS/font.css">
+	<style type="text/css">
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    	box-sizing: border-box;
+	    }
+		.box{
+			width: 1000px;
+			margin:100px auto;
+			/*overflow: hidden;*/
+			/*border: 1px solid #ff6700;*/
+		}
+		.box img{
+			width: 100%;
+            height: 100%;
+		}
+		.box ul{
+			/*overflow: hidden;*/
+		}
+		.box li{
+			width: 210px;
+            height: 200px;
+			float:left;
+			list-style: none;
+			margin-left: 20px;
+			transition: all 0.5s;
+		}
+		.box li:nth-child(1){
+			margin-left: 0px;
+			background-color: #5f5750;
+			position: relative;
+		}
+		.box li div{
+			width: 70px;
+			height: 100px;
+            float: left; 
+            /*line-height: 100px;*/
+            text-align: center;
+            /*padding-top: 20px;*/
+            overflow: hidden;
+		}
+		.box li div a{
+			text-decoration: none;
+		}
+		.box li div a:hover p,
+		.box li div a:hover i{
+			color: #fff;
+		}
+		.box li div p{
+			font-size: 12px;
+			color: #cdcac8;
+		}
+		.box li div i{
+			display: inline-block;
+			font-size: 24px;
+			color: #cdcac8;
+			margin-bottom: 5px;
+			margin-top: 25px;
+		}
+		.box li .shu:after{
+            content: "";
+            width: 1px;
+            height: 80px;
+            display: block;
+            background-color:#665e57;
+            margin-left: 69px;
+            margin-top: -60px;
+		}
+		.box li .hang:before{
+			content: "";
+            width: 60px;
+            height: 1px;
+            display: block;
+            background-color:#665e57;
+			position: absolute;
+			top: 100px;
+			margin-left: 5px;
+		}
+		.box li:nth-child(2):hover,
+		.box li:nth-child(3):hover,
+		.box li:nth-child(4):hover{
+			box-shadow: 0 0 30px rgba(0,0,0,0.5);
+		}
+		.box li>a{
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>
+				<div class="shu hang"><a href="#"><i class="iconfont">&#xe903;</i><p>手机配置</p></a></div>
+				<div class="shu hang"><a href="#"><i class="iconfont">&#xe904;</i><p>手机配置</p></a></div>
+				<div class="hang"><a href="#"><i class="iconfont">&#xe905;</i><p>手机配置</p></a></div>
+				<div class="shu"><a href="#"><i class="iconfont">&#xe906;</i><p>手机配置</p></a></div>
+				<div class="shu"><a href="#"><i class="iconfont">&#xe907;</i><p>手机配置</p></a></div>
+				<div><a href="#"><i class="iconfont">&#xe908;</i><p>手机配置</p></a></div>
+			</li>
+			<li><a href="#"><img src="images/1.jpg"></a></li>
+			<li><a href="#"><img src="images/1.jpg"></a></li>
+			<li><a href="#"><img src="images/1.jpg"></a></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css平滑过渡页面综合练习</title>
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.css">
+	<style>
+		*{
+			margin:0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+	html{
+			height:100%;
+		}
+	body{
+			height: 100%;
+		}
+	.cantainer{
+			height: 100%;
+		}
+	.panel{
+		height: 100%;
+	}
+     .container input,.container a{
+     	position: fixed;
+     	top: 0px;
+     	width: 20%;
+     	height: 34px;
+     	line-height: 34px;
+     }
+     .container a{
+     	background-color:skyblue;
+     	/*opacity: 0.5;*/
+     }
+     #co11,#co11+a{
+     	left: 0%;
+     }
+     #co12,#co12+a{
+     	left: 20%;
+     }
+     #co13,#co13+a{
+     	left: 40%;
+     }
+     #co14,#co14+a{
+     	left: 60%;
+     }
+     #co15,#co15+a{
+     	left: 80%;
+     }
+     .container input{
+     	z-index: 1000;
+     	opacity: 0;
+     	cursor: pointer;
+     }
+     .container a{
+     	z-index: 10;
+     	text-align: center;
+     	text-decoration: none;
+     	font-size: 18px;
+     	color: white;
+     	font-weight: bold;
+     }
+     .container input:checked + a,
+
+     .container input:checked:hover + a{
+     	background-color: pink;
+     }
+     .container input:hover +a {
+         background-color: #ccc;
+     }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<input type="radio" name="radion-set" id="co11" checked="checked">
+		<a href="#">Home</a>
+		<input type="radio" name="radion-set" id="co12">
+		<a href="#">Service</a>
+		<input type="radio" name="radion-set" id="co13">
+		<a href="#">About</a>
+		<input type="radio" name="radion-set" id="co14">
+		<a href="#">Team</a>
+		<input type="radio" name="radion-set" id="co15">
+		<a href="#">Contact</a>
+	</div>
+	<div class="content">
+	 <section class="panel" id="home">home</section>
+	 <section class="panel" id="service">service</section>
+	 <section class="panel" id="about">about</section>
+	 <section class="panel" id="team">team</section>
+	 <section class="panel" id="contact">contact</section>		 
+	</div>
+</body>
+</html>

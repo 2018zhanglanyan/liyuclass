@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>070-删除元素.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oUl = document.getElementById('ul1');
+			// var oA = oUl.getElementsByTagName('a');
+			var oA = document.getElementsByTagName('a');
+			console.log(oA);
+			for (var i = 0; i < oA.length; i++) {
+					oA[i].onclick = function(){
+					oUl.removeChild(this.parentNode);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1<a href="javascript:;">del</a></li>
+		<li>2<a href="javascript:;">del</a></li>
+		<li>3<a href="javascript:;">del</a></li>
+		<li>4<a href="javascript:;">del</a></li>
+		<li>5<a href="javascript:;">del</a></li>
+		<li>6<a href="javascript:;">del</a></li>
+	</ul>
+</body>
+</html>

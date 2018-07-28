@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-jQuery操作代码和文本.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				var $res = $('div').clone();
+				console.log($res);
+				// $('body').append($res);
+				// $('div').remove();
+				// $('div').empty();
+				$('div').detach();
+			})
+		})
+	</script>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var oAjax = new XMLHttpRequest();
+			oAjax.open('http://127.0.0.1:3000/postReq');
+		})
+	</script>
+</head>
+<body>
+	<button>创建</button>
+	<div>我是</div>
+</body>
+</html>

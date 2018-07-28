@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-选项卡案例.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid tomato; 
+			margin-top: 2px;
+			display: none;
+			background-color: lime;
+		}
+		.active{
+			background-color: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+			aBtn.onclick = function(){
+				for (var i = 0; i < aBtn.length; i++) {
+					// aBtn[i].className = 'active';
+					this.className = 'active';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1" class="active">
+	<input type="button" value="按钮2">
+	<input type="button" value="按钮3">
+	<input type="button" value="按钮4">
+	<div style="display: block">内容1</div>
+	<div>内容2</div>
+	<div>内容3</div>
+	<div>内容4</div>
+</body>
+</html>

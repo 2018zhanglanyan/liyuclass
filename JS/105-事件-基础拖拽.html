@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>105-事件-物体拖拽事件.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: tomato;
+			position: absolute;
+			top:0px;
+			left: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var disX = 0;
+			var disY = 0;
+			oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oBox.offsetLeft;
+				disY = oEvent.clientY - oBox.offsetTop;
+			document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				oBox.style.left = oEvent.clientX - disX + 'px';
+				oBox.style.top = oEvent.clientY - disY + 'px';
+				}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+				}
+			}
+		}	
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

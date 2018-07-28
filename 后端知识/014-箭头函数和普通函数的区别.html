@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-箭头函数和普通函数的区别</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	/*
+	function Person(){
+
+	}
+	*/
+
+	// let Person = =>{}
+	// console.log(Person.prototype);
+
+	/*
+	let show = (...args)=>{
+		console.log(args);
+	};
+	show(11,22,33);
+	*/
+
+	function fact(n){
+		if (n<=1) {
+			return 1;
+		}else{
+			return n * fact(n-1);
+		}
+	}
+	let fnFact = fact;
+	fact = null;
+	console.log(fnFact(10));
+</script>
+</html>

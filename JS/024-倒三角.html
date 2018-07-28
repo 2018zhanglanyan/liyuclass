@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.sp{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+		}
+		.st{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		// 
+		// window.onload = function(){
+			for (var i = 0; i < 10; i++) {
+				var str = '';
+				for (var j = 1; j < 10-i ; j++) {
+					str = str + "<span class='sp'></span>";
+				}
+				for (var k = 0; k <= i; k++) {
+					str = str + "<span class='st'>*</span>";
+				}
+				document.write(str);
+				document.write("<br>");
+				// document.write("*");
+			}
+		// }
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

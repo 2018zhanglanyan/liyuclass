@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css复习过渡</title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		ul{
+			width: 800px;
+			height: 900px;
+			border: 1px solid #000;
+			margin:50px auto;
+		}
+		ul li{
+			width: 200px;
+			height: 100px;
+			background-color: lime;
+			list-style: none;
+			margin-top:20px;
+			transition-property: margin-left;
+			transition-duration: 5s;
+		}
+		ul:hover li{
+			margin-left: 600px;
+		}
+       ul li:nth-child(2){
+       	transition-timing-function:linear; 
+       }
+       ul li:nth-child(3){
+       	transition-timing-function:ease; 
+       }
+       ul li:nth-child(4){
+       	transition-timing-function:ease-in; 
+       }
+       ul li:nth-child(5){
+       	transition-timing-function:ease-out; 
+       }
+       ul li:nth-child(6){
+       	transition-timing-function:ease-in-out; 
+       }
+       ul li:nth-child(7){
+       	transition-timing-function:cubic-beziec(0,0,1,1,); 
+       }
+	</style>
+</head>
+<body>
+  <ul>
+  	<li>默认</li>
+  	<li>linear</li>
+  	<li>ease</li>
+  	<li>ease-in</li>
+  	<li>ease-out</li>
+  	<li>ease-in-out</li>
+  	<li>cubic-beziex</li>
+  </ul>	
+</body>
+</html>

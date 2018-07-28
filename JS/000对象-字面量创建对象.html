@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000对象-字面量创建对象.html</title>
+	<script type="text/javascript">
+		// 这个函数属于谁  this指的就是谁    这个函数是属于obj 如果对象有重复  后面的会把前面的覆盖掉
+		var obj = {
+			name:'Tom',
+			age:18,
+			name:'Amy',
+			sayHi:function(){
+				console.log(this.name + ' say  Hi ');
+			}
+		};
+		/*
+		用这种方法不靠谱
+		obj.name = 'Tom';
+		obj.age = 18;
+		obj.sayHi = function(){
+			console.log('Hello');
+		}
+		// console.log(typeof obj);
+		*/
+		// console.log(obj.name);
+		// console.log(obj.age);
+		// obj.sayHi();
+		for(key in obj){
+			console.log(key);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

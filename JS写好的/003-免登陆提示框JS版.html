@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-免登陆提示框JS版.html</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 100px;
+			border: 1px solid tomato;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<!-- 这里面.的意思的是‘的’ 例如:box的style  “=”的意思赋值 document：文件文档  get 的意思是得到获取   Element 的意思是元素  By 的意思是通过   Id  （通过ID获取元素）
+	JavaScript的使用方法
+1.写在元素标签的起始标签中
+（1）用法:把JS代码写在元素起始标签的事件属性中
+
+（2）缺点:重复代码多,维护困难,使用场景有限
+
+
+案例1:点击改颜色/免登陆提示框
+通过案例总结：
+
+（1）JS可以修改元素的属性
+
+（2）修改元素属性的步骤
+
+①HTML页面布局
+
+②确定修改哪些元素
+
+③确定触发修改元素的事件，并将该事件添加在触发元素上
+
+④编写JS代码来修改属性
+
+（3）注意点
+
+①任何属性都可以修改
+
+②任何标签都可以有ID属性,可以通过ID属性获取该元素
+
+③修改属性时，HTML当中怎么写，JS当中就怎么写,但class是特例,用className
+
+④修改样式的格式：obj.style.属性＝值
+
+⑤JS用style修改属性时，如果CSS的属性有"-"的话，通常把"-"去掉，然后把"-"后面的单词首字母大写-->
+	<input type="checkbox" onmouseover="document.getElementById('box').style.display = 'block';"
+							onmouseout="document.getElementById('box').style.display = 'none';">
+	<div id="box">为了你的信息安全，请不要在网吧使用该功能。。。</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-数组.html</title>
+	<script type="text/javascript">
+		var arr = [10,20,30,40,50,60];
+		// console.log(arr);
+		// forEach 不会生成新的数组 没有返回值
+		var res1 = arr.forEach(function(value,index){
+			console.log("value " + value + "::" + 'index');
+		})
+		// map 映射: 映射成新的数组并返回
+		var res2 = arr.map(function(value,index){
+			// 返回的每个值加10
+			return value + 10;
+		})
+			console.log(res2);
+			// filter 过滤：把每一次返回值为真的原数组中的值生成新的数组并返回 
+		var res3 = arr.filter(function(value,index){
+			// 只显示大于20的值
+			return value > 20;
+		})
+			console.log(res3);
+			// every 全真判断：所有值为真返回真 否则返回假
+		var res4 = arr.every(function(value,index){
+			return value > 10;
+		})
+			console.log(res4);
+			// some 有真判断: 有一个为真返回真 否则返回假
+		var res5 = arr.some(function(value,index){
+			return value > 10;
+		})
+			console.log(res5);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-jquery的使用.html</title>
+	<script src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		/*
+		window.onload = function(){
+			alert('aa');
+		}
+		// 用window后面的会把前面的覆盖掉
+		window.onload = function(){
+			alert('bb');
+		}
+		jQuery(document).ready(function(){
+			var name = 'Tom';
+			alert(name);
+		})
+		// jquery对象不会覆盖   都会显示
+		jQuery(document).ready(function(){
+			var name = 'Leo';
+			alert(name);
+		})
+		console.log(jQuery == $);
+		$(document).ready(function(){
+			var name = 'Tom';
+			alert(name);
+		})
+		$(document).ready(function(){
+			var name = 'Leo';
+			alert(name);
+		})*/
+		// 比较常用的一种
+		$(function(){
+			var name = 'Tom';
+			alert(name);
+		})
+		$(function(){
+			var name = 'Leo';
+			alert(name);
+		})
+		/*
+		jQuery(function(){
+			var name = 'Tom';
+			alert(name);
+		})
+		jQuery(function(){
+			var name = 'Leo';
+			alert(name);
+		})
+		*/
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

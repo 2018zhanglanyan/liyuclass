@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-对象级别的插件.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		;(function($){
+			$.fn.extend({
+				yanse:function(options){
+					var defaults = {
+						color:'red',
+					};
+					options = $.extend(defaults,options);
+					this.each(function(){
+						this.style.color = options.color;
+					});
+				},
+				beijingyanse:function(){
+					// 第二个方法
+				}
+			})
+		})(jQuery);
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$('div').yanse({
+				color:'aqua',
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>变色</button>
+	<div>你好</div>
+</body>
+</html>

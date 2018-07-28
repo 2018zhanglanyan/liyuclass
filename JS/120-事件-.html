@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>120-事件-.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#ul{
+			width: 100px;
+			height: 200px;
+			border: 1px solid #ccc;
+		}
+		#ul li{
+			list-style: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oUsername = document.getElementById('username');
+			var oSub = document.getElementById('sub');
+			oUsername.onfocus = function(){
+				oUsername.addEventlisLener = function(){
+					oUsername.style.color = 'yellow';
+					oUsername.innerHTML = '输入6-8个字符';
+				}	
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="https://www.kuazhu.com">
+		<p>
+			<input type="text" id="username" name="username">
+		</p>
+		<ul id="ul">
+			<li>Amy</li>
+			<li>Mike</li>
+			<li>Tom</li>
+		</ul>
+		<p>
+			<input type="submit" value="提交" id="sub">
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>060-去除重复数组.html</title>
+	<script type="text/javascript">
+		var arr = [20,10,60,20,30,10];
+		console.log(arr);
+		function quchong(arr){
+			var result = [];
+			for (var i = 0; i < arr.length; i++) {
+				// 判断条件
+				var tiaoJian = false;
+				for (var j = 0; j < result.length; j++) {
+					if (arr[i] == result[j]) {
+						tiaoJian = true;
+						break;
+					}
+				}
+				if (!tiaoJian) {
+					result.push(arr[i]);
+				}
+			}
+			return result;
+		}
+		console.log(quchong(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

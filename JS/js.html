@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.btn{
+			overflow: hidden;
+		}
+		.btn li{
+			list-style: none;
+			width: 60px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			float: left;
+			font-weight: 600;
+			color: #fff;
+			margin-left: 20px;
+			border-radius:20px; 
+			background-color: fuchsia;
+		}
+		.btn .active{
+			background-color: yellow;
+			color: orange;
+		}
+		.con li{
+			list-style: none;
+			width: 200px;
+			height: 200px;
+			background-color: aqua;
+			line-height: 200px;
+			text-align: center;
+			font-size: 30px;
+			font-weight: 600;
+			margin-left: 70px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		//1.取消函数嵌套
+		//2.提升变量为全局变量
+		//3.onload 构造函数
+		//4.把函数改为构造函数的原型对象上的方法 把全局变量改为构造函数上的属性  修改this
+		window.onload = function(){
+			new Tab();
+			// console.log(Tab());
+		}
+		function Tab(){
+			aButton = document.getElementById('button').children;
+			aCentent = document.getElementById('content').children;
+			for (var i = 0; i < aButton.length; i++) {
+				aButton[i].index = i;
+				aButton[i].onclick = fnClick;
+				}
+		}
+		function fnClick(){
+			for (var j = 0; j < aButton.length; j++) {
+					aButton[j].className = '';
+					aCentent[j].style.display = 'none';
+				}
+				this.className = 'active';
+				aCentent[this.index].style.display = 'block';
+		}
+	</script>
+</head>
+<body>
+	<ul class="btn" id="button">
+		<li class="active">btn1</li>
+		<li>btn2</li>
+		<li>btn3</li>
+		<li>btn4</li>
+	</ul>
+	<ul class="con" id="content">
+		<li style="display: block">content1</li>
+		<li>content2</li>
+		<li>content3</li>
+		<li>content4</li>
+	</ul>
+</body>
+</html>

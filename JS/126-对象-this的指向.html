@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>126-改变this的指向.html</title>
+	<script type="text/javascript">
+		// 函数属于谁  this就指向谁
+		/*function show(){
+			console.log(this);
+		}
+		window.show();
+		*/
+		function show(){
+			console.log(this);
+		}
+		show.call();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

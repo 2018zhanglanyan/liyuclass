@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-函数的节流.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	/*function throttle(fn,delay){
+		var timer = null;
+		return function(){
+			clearTimeout(timer);
+			timer = setTimeout(function(){
+				console.log(window.innerWidth);
+			},delay);
+		}
+	}
+	window.onresize = throttle(function(){
+		
+	},400)*/
+	function throttle(fn,delay){
+		var timer = null;
+		return function(){
+			clearTimeout(timer);
+			timer = setTimeout(fn,delay)
+		}
+	}
+	window.onresize = throttle(function(){
+		console.log(window.innerWidth);
+	},500)
+
+
+</script>
+</html>

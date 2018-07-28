@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>101-BOM-运行代码.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function(){
+				var val = oTxt.value;
+				var oWin = window.open('about:blank');
+				oWin.document.write(val);
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea id="txt" rows="20" cols="30"></textarea>
+	<input type="button" value="运行" id="btn">
+</body>
+</html>

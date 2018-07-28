@@ -1,0 +1,17 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+.container{
+	width: 1220px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.clearfix:before{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0px;
+        visibility: hidden;
+}

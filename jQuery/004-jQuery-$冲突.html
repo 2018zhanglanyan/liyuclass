@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-jquery-$冲突.html</title>
+	<script type="text/javascript">
+		(function(w){
+			function test(){
+				alert('my test');
+			}
+			w.$ = test;
+		})(window);
+	</script>
+	<script type="text/javascript" src="jq-chajian/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		// jQuery.noConflict();
+		// jQuery(function(){
+		// 	alert('aa');
+		// });
+		console.log(jQuery == $);
+		var zy = jQuery.noConflict();
+		// $();
+		zy(function(){
+			alert('bb');
+		})
+		console.log(jQuery == $);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-拼图.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 600px;
+			height: 400px;
+			margin: 100px auto;
+		}
+		.container li{
+			list-style: none;
+			width: 120px;
+			height: 200px;
+			float: left;
+		}
+		.container li img{
+			width: 120px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="container">
+		<li draggable="true"><img src="img/images/竹子_03.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_04.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_05.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_06.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_07.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_08.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_09.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_10.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_11.gif"></li>
+		<li draggable="true"><img src="img/images/竹子_12.gif"></li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var targetEle = null;
+		$('.container')
+		.on('dragstart','li',function(ev){//被拖拽的元素
+			targetEle = this;
+			// console.log(targetEle);
+			// ev.originalEvent.dataTransfer.setData('html',this.innerHTML)
+		})
+		.on('drop','li',function(ev){
+			if (targetEle != this) {
+				// console.log(targetEle);
+				var tmp = targetEle.innerHTML;
+				targetEle.innerHTML = this.innerHTML;
+				this.innerHTML = tmp;
+			}
+		})
+		.on('dragover','li',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
+</html>

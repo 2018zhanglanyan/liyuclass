@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-获取表单.html</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com">
+		<p>
+			用户名：
+			<input type="text" name="username">
+		</p>
+		<p>
+			密码：
+			<input type="password" name="username">
+		</p>
+		<p>
+			性别：
+			<input type="radio" name="sex">男
+			<input type="radio" name="sex">女
+			<input type="radio" name="sex">忽略
+		</p>
+		<p>
+			爱好：
+			<input type="checkbox" name="hobby">K歌
+			<input type="checkbox" name="hobby">跑步
+			<input type="checkbox" name="hobby">逛街
+		</p>
+		<p>
+			<input type="button" value="提交1" id="btn1">
+			<input type="button" value="提交2" id="btn2">
+			<input type="button" value="提交3" id="btn3">
+		</p>
+	</form>
+</body>
+<script type="text/javascript">
+	var aforms = document.forms;
+	var oform = aforms[0];
+	var oBtn = document.getElementById('btn1');
+	var oBtn = document.getElementById('btn2');
+	var oBtn = document.getElementById('btn3');
+	console.log(oform);
+
+</script>
+</html>

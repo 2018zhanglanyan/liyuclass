@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-canvas画圆.html</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid aqua;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas">
+		如果您的浏览器不支持，
+	</canvas>
+</body>
+<script type="text/javascript">
+	// 获取canvas的DOM元素
+	var oCanvas = document.getElementById('canvas');
+	oCanvas.width = '600';
+	oCanvas.height = '400';
+	// 获取canvas的上下文环境
+	var ctx = oCanvas.getContext('2d');
+	// console.log(ctx);
+	// 指定起始坐标
+	ctx.moveTo(0,0);
+	// 直线终点坐标
+	ctx.lineTo(100,100);
+	ctx.lineTo(200,100);
+	// 指定描边的样式
+	ctx.strokeStyle = '#f00';
+	// 设置线条的宽度
+	ctx.lineWidth = '5';
+	// 设置填充的颜色   rgba(0,255,0,0.5);
+	ctx.fillStyle = '#f88';
+	// 封闭路径
+	ctx.closePath();
+	// 描边
+	ctx.stroke();
+	// 封闭路径后填充
+	ctx.fill();
+</script>
+</html>

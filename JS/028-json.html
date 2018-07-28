@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-json.html</title>
+	<script type="text/javascript">
+		// 遍历    迭代  把数组里面的每一个都数据都	拿出来处理
+		var arr = [11,22,33,44];
+		/*for (var i = 0; i < arr.length; i++) {
+			// console.log(arr[i]);
+		}*/
+		// key/value  key : 键 指的是‘a’  value 指的是 1
+		for(i in arr){
+			// console.log(i);
+			console.log(arr[i]);
+		}
+		var obj = {
+			'a': 1,
+			'b': 2,
+			'c': 3,
+			'd': 4
+		}
+		// console.log(obj);
+		// console.log(obj.a);
+		// console.log(obj['a']);
+		// console.log(obj.length);
+		for(key in obj){
+			// console.log(key);
+			console.log(obj[key]);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

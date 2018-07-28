@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-量词.html</title>
+	<script type="text/javascript">
+		/*var reg = /\w/g;
+		console.log('0::',reg.lastIndex);
+		console.log('1::',reg.test('58486'));
+		console.log('2::',reg.lastIndex);
+		console.log('3::',reg.test('503434'));
+		console.log('4::',reg.lastIndex);
+		console.log('5::',reg.test('abnjtruj'));
+		console.log('6::',reg.lastIndex);*/
+		var reg = /(\d{4})-(\d{2})-(\d{2})/g;
+		var str = 'a2018-05-10b';
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

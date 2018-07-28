@@ -1,0 +1,39 @@
+/*张燕的跨淘网的公用样式*/
+/*公用样式开始*/
+	body{
+		font-size: 12px;
+	}
+	.container{
+		width: 1200px;
+		margin: 0 auto;
+	}
+/*公用样式结束*/
+/*公共链接开始*/
+	a{
+		text-decoration: none;
+	}
+	.link{
+		color: #3c434a;
+	}
+	.link:hover{
+		color: #e34f48;
+	}
+/*公共链接结束*/
+/*浮动样式开始*/
+	.fl{
+		float: left;
+	}
+	.fr{
+		float: right;
+	}
+	.clearfix:after{
+		display: block;
+		content: '';
+		clear: both;
+		height: 0px;
+		visibility: hidden;
+	}
+	.clearfix{
+		*zoom:1;/*IE兼容*/
+	}
+/*浮动样式结束*/

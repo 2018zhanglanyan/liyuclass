@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>112-事件-带边框的拖拽.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: tomato;
+			position: absolute;
+			top:0px;
+			left: 0px;
+		}
+		.box1{
+			border: 1px dashed black;
+			position: absolute;
+			box-sizing: border-box;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var disX = 0;
+			var disY = 0;
+			oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oBox.offsetLeft;
+				disY = oEvent.clientY - oBox.offsetTop;
+				var oBox1 = document.createElement('div');
+				oBox1.className = 'box1'
+				oBox1.style.width = oBox.offsetWidth + 'px';
+				oBox1.style.height = oBox.offsetHeight + 'px';
+				document.body.appendChild(oBox1);
+				oBox1.style.left = oBox.offsetLeft + 'px';
+				oBox1.style.top = oBox.offsetTop + 'px';
+			document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				oBox1.style.left = oEvent.clientX - disX + 'px';
+				oBox1.style.top = oEvent.clientY - disY + 'px';
+				}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+				oBox.style.left = oBox1.offsetLeft + 'px';
+				oBox.style.top = oBox1.offsetTop + 'px';
+				document.body.removeChild(oBox1);
+				}
+			}
+		}	
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

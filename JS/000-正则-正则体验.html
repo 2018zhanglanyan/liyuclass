@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-正则-正则体验.html</title>
+	<script type="text/javascript">
+		var str = '132vch 42 jil klj565 fhguy 56knkn bgfseg45';
+		// 返回值
+		var result = [];
+		var tmp = '';
+		for (var i = 0; i < str.length; i++) {
+			// charAt 返回指定位置的一个字符 作用：可以把字符串里面的东西 一个个罗列出来
+			// console.log(str.charAt(i));
+			if (!isNaN(parseInt(str.charAt(i)))) {
+				// 提取数字
+				// console.log(str.charAt(i));
+				tmp += str.charAt(i);
+			}else if(tmp){
+				result.push(tmp);
+				tmp = '';
+			}
+		}
+		/*if(tmp){
+			result.push(tmp);
+			tmp = '';
+		}*/
+		console.log(result);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

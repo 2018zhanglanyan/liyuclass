@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000-仿购物车弹出框案例.html</title>
+	<style type="text/css">
+		.left{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin-right: 10px;
+			float: left;
+		}
+		.right{
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+			float: left;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="left">A</div>
+	<div class="right">B</div>
+</body>
+<script type="text/javascript">
+	var oLeft = document.querySelector('.left');
+	var oRight = document.querySelector('.right');
+	var timer = null;
+	oLeft.onmouseenter = function(){
+		clearTimeout(timer);
+			oRight.style.display = 'block';
+	}
+	oLeft.onmouseleave = function(){
+		timer = setTimeout(function(){
+			oRight.style.display = 'none';
+		},1000)
+	}
+	oRight.onmouseenter = function(){
+		clearTimeout(timer);
+		oRight.style.display = 'block';
+	}
+	oRight.onmouseleave = function(){
+		timer = setTimeout(function(){
+			oRight.style.display = 'none';
+		},1000)
+	}
+</script>
+</html>
