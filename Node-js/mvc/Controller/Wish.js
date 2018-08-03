@@ -3,6 +3,8 @@ const swig = require('swig');
 const querystring = require('querystring');
 
 class Wish{
+
+	//显示许愿墙页面
 	index(req,res,...args){
 		wish.get((err,data)=>{
 			if(!err){
@@ -15,50 +17,49 @@ class Wish{
 			}else{
 				console.log(err);
 			}
-		});
-	};
+		});	
+	}
+
+	del(req,res,...args){
+		wish.remove(args[0],(err)=>{
+			if(!err){
+				let resultJson = JSON.stringify({
+					status:0
+				});
+				res.end(resultJson);					
+			}
+		});		
+	}
 	
 	add(req,res,...args){
-		// 1.获取前端参数
+		//1.获取前端的参数
 		let body = '';
 		req.on('data',(chunk)=>{
 			body += chunk;
 		});
 		req.on('end',()=>{
 			let obj = querystring.parse(body);
-			// 2.存储到文件
+			//2.存储到文件
 			wish.add(obj,(err,data)=>{
 				let result = {};
-				if (!err) {
-					// 3.返回结果到前端
+				if(!err){
+					//3.返回结果到前端
 					result = {
-						status:0, // 成功
+						status:0,//成功
 						data:data
 					}
-				} else {
+				}else{
 					result = {
-						status:10, // 失败
-						message:'错了。。'
+						status:10,//成功
+						message:'添加失败'
 					}
+					console.log(err);
 				}
 				let resultJson = JSON.stringify(result);
-				res.end(resultJson);
-			})
-		})
-	};
-
-	del(req,res,...args){
-		wish.remove(args[0],(err,data)=>{
-			let result = {};
-			if (!err) {
-				result = {
-					status:0
-				}
-			}
-			let resultJson = JSON.stringify(result);
-			res.end(resultJson);
-		})
+				res.end(resultJson);				
+			});
+		});		
 	}
-};
+}	
 
 module.exports = new Wish();

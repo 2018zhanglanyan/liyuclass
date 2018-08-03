@@ -14,7 +14,7 @@ let add = (options,callback)=>{
 	fs.readFile(filePath,(err,data)=>{
 		if(!err){
 			let obj = JSON.parse(data);
-			options._id = uuidv1();
+			options.id = uuidv1();
 			options.color = colorArr[getRandom(0,colorArr.length-1)];
 			obj.push(options);
 			let str = JSON.stringify(obj);

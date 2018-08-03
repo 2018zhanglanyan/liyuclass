@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="get">GET请求<tton>
+	<button id="post">POST请求<tton>
+	<button id="put">PUT请求<tton>
+	<button id="delete">DELETE请求<tton>
+</body>
+<script src="jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		$('#get').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:"get"
+			})
+			.done(function(data){
+				console.log(data);
+			})
+			.fail(function(err){
+				console.log(err);
+			})
+		});
+		$('#post').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:"post"
+			})
+			.done(function(data){
+				console.log(data);
+			})
+			.fail(function(err){
+				console.log(err);
+			})
+		});
+		$('#put').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:"put"
+			})
+			.done(function(data){
+				console.log(data);
+			})
+			.fail(function(err){
+				console.log(err);
+			})
+		});
+		$('#delete').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:"delete"
+			})
+			.done(function(data){
+				console.log(data);
+			})
+			.fail(function(err){
+				console.log(err);
+			})
+		});
+	})
+</script>
+</html>
