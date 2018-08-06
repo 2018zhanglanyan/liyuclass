@@ -1,8 +1,8 @@
-const espress = require('express');
+const express = require('express');
 
 // console.log(express);
 
-const app = espress();
+const app = express();
 
 app.get('/',(req,res,next)=>{
 	console.log('home page...');
@@ -35,7 +35,7 @@ app.delete('/',(req,res)=>{
 });
 
 
-app.use(espress.static('public'));
+app.use(express.static('public'));
 
 
 app.listen(3000,()=>{

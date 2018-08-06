@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<div>
+		{{ content }}
+	</div>
+	<div>
+		{{ name }}
+		<!-- {{ obj.name }} -->
+	</div>
+	<div>
+		{% if name === 'Yan' %}
+		<h1>请你以圆的方式滚出我的眼球</h1>
+		{% endif %}
+	</div>
+	<div>
+		{% if name === 'Zhang' %}
+		 <h2>你好</h2>
+		{% elseif name === 'Yan' %}
+		<h1>今天下雨了</h1>
+		{% endif %}
+	</div>
+	<div>
+		{% for key,val in arr %}
+		<p>
+			{{ key }}
+			{{ val }}
+		</p>
+		{% endfor %}
+	</div>
+</body>
+</html>
