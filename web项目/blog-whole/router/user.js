@@ -1,8 +1,10 @@
 const Router=require('express').Router;
-const router=Router();
+
 const UserModel = require('../models/userModle.js');
 const hmac = require('../util/hmac.js')
 
+
+const router=Router();
 //注册
 router.post('/register',(req,res)=>{
 	let body = req.body;

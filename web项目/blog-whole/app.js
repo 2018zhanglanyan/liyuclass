@@ -81,8 +81,6 @@ app.use('/',require('./router/index.js'));
 app.use('/user',require('./router/user.js'));
 app.use('/admin',require('./router/admin.js'));
 
-
-
 app.listen(3000,()=>{
 	console.log('server id running at localhost')
 })
