@@ -4,6 +4,8 @@ const swig = require('swig');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Cookies = require('cookies');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 
@@ -36,22 +38,39 @@ app.set('view engine','html');
 app.use(express.static('public'));
 
 //设置cookie的中间件
+// app.use((req,res,next)=>{
+// 	req.cookies = new Cookies(req,res);
+// 	// console.log(req.cookies.get('userInfo'))
+// 	req.userInfo = {};
+
+// 	let userInfo = req.cookies.get('userInfo');
+
+// 	if(userInfo){
+// 		try{
+// 			req.userInfo = JSON.parse(userInfo)
+// 		}catch(e){
+// 		}
+// 	}
+
+// 	next();
+// });
+
+
+app.use(session({
+	name: 'bild',
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+  rolling: true,
+  cookie: {maxAge:1000*60*60*24},
+  store: new MongoStore({mongooseConnection:mongoose.connection})
+}))
+
 app.use((req,res,next)=>{
-	req.cookies = new Cookies(req,res);
-	// console.log(req.cookies.get('userInfo'))
-	req.userInfo = {};
-
-	let userInfo = req.cookies.get('userInfo');
-
-	if(userInfo){
-		try{
-			req.userInfo = JSON.parse(userInfo)
-		}catch(e){
-		}
-	}
+	req.userInfo  = req.session.userInfo || {};
 
 	next();
-});
+})
 
 //处理post请求（可以直接拿到data数据） 的中间件
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -60,6 +79,7 @@ app.use(bodyParser.json());
 //第五步配置路由
 app.use('/',require('./router/index.js'));
 app.use('/user',require('./router/user.js'));
+app.use('/admin',require('./router/admin.js'));
 
 
 
