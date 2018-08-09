@@ -1,12 +1,10 @@
 {% extends './layout.html' %}
-
 {% block header %}
-
-用户列表
-
+	用户列表
 {% endblock %}
 
 {% block content %}
+<!-- 主要内容展示 -->
 <table class="table table-striped">
   <tr>
   	<th>id</th>
@@ -27,6 +25,7 @@
   	</tr>
   {% endfor %}
 </table>
+<!-- 分页按钮 -->
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li>

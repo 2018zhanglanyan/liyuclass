@@ -1,10 +1,8 @@
 const Router=require('express').Router;
-
+const router=Router();
 const UserModel = require('../models/userModle.js');
 const hmac = require('../util/hmac.js')
 
-
-const router=Router();
 //注册
 router.post('/register',(req,res)=>{
 	let body = req.body;
@@ -51,18 +49,19 @@ router.post("/login",(req,res)=>{
 	.findOne({username:body.username,password:hmac(body.password)})
 	.then((user)=>{
 		if(user){//登录成功
-			 // result.data = {
-			 // 	_id:user._id,
-			 // 	username:user.username,
-			 // 	isAdmin:user.isAdmin
-			 // }
+			/*
+			 result.data = {
+			 	_id:user._id,
+			 	username:user.username,
+			 	isAdmin:user.isAdmin
+			 }
+			 */
 			 // req.cookies.set('userInfo',JSON.stringify(result.data));
 			 req.session.userInfo = {
 			 	_id:user._id,
 			 	username:user.username,
 			 	isAdmin:user.isAdmin
 			 }
-
 			 res.json(result);
 		}else{
 			result.code = 10;
@@ -80,7 +79,6 @@ router.get('/logout',(req,res)=>{
 		message:''
 	}	
 	// req.cookies.set('userInfo',null);
-
 	req.session.destroy();
 
 	res.json(result);

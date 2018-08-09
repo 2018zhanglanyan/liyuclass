@@ -1,4 +1,5 @@
 (function($){
+	//退出
 	$('#logout').on('click',function(){
 		$.ajax({
 			url:"/user/logout",
@@ -15,4 +16,5 @@
 			console.log(err)
 		})		
 	});
+	
 })(jQuery);
