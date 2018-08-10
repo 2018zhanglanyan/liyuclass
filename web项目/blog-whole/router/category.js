@@ -1,9 +1,4 @@
-/*
-* @Author: Tom
-* @Date:   2018-08-06 09:23:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-09 11:39:11
-*/
+
 const Router = require('express').Router;
 const CategoryModel = require('../models/categoryModel.js');
 const pagination = require('../util/pagination.js');
@@ -32,7 +27,7 @@ router.get("/",(req,res)=>{
 
 	pagination(options)
 	.then((data)=>{
-		res.render('admin/category-add',{
+		res.render('admin/category-list',{
 			userInfo:req.userInfo,
 			categories:data.docs,
 			page:data.page,
@@ -45,14 +40,13 @@ router.get("/",(req,res)=>{
 
 //显示新增页面
 router.get("/add",(req,res)=>{
-	res.render('admin/category-from',{
+	res.render('admin/category-add-edit',{
 		userInfo:req.userInfo
 	});
 })
 //处理添加请求
 router.post("/add",(req,res)=>{
 	let body = req.body;
-	// console.log('body::',body)
 	CategoryModel
 	.findOne({name:body.name})
 	.then((cate)=>{
@@ -85,5 +79,106 @@ router.post("/add",(req,res)=>{
 		}
 	})
 })
+
+router.get("/edit/:id",(req,res)=>{
+	let id = req.params.id;
+	CategoryModel.findById(id)
+	.then((category)=>{
+		res.render('admin/category-add-edit',{
+			userInfo:req.userInfo,
+			category:category
+		});
+	})
+})
+
+/*
+router.post("/edit",(req,res)=>{
+	let body = req.body;
+	CategoryModel.findOne({name:body.name})
+	.then((category)=>{
+		if(category && category.order == body.order){
+			res.render('admin/category-fail',{
+				userInfo:req.userInfo,
+				message:'修改失败'
+			})
+		}else{
+			CategoryModel.update({_id:body.id},{name:body.name,order:body.order})
+			.then((category)=>{
+				if(category){
+					res.render('admin/category-success',{
+						userInfo:req.userInfo,
+						message:'修改成功',
+						url:'/category'
+					})
+				}else{
+					res.render('admin/category-fail',{
+						userInfo:req.userInfo,
+						message:'修改失败'
+					})
+				}
+			})
+		}
+	})
+	
+})
+*/
+
+router.post("/edit",(req,res)=>{
+	let body = req.body;
+	CategoryModel.findOne({name:body.name})
+	.then((category)=>{
+		if(category.name == body.name && category.order == body.order){
+			res.render('admin/category-fail',{
+				userInfo:req.userInfo,
+				message:'修改失败,请修改数据后再提交'
+			})
+		}else{
+			CategoryModel.findOne({name:body.name,_id:{$ne:body.id}})
+			.then((cat)=>{
+				if(cat){
+					res.render('admin/category-fail',{
+						userInfo:req.userInfo,
+						message:'修改失败,请修改数据后再提交'
+					})
+				}else{
+					CategoryModel.update({_id:body.id},{name:body.name,order:body.order})
+					.then((category)=>{
+						if(category){
+							res.render('admin/category-success',{
+								userInfo:req.userInfo,
+								message:'修改成功',
+								url:'/category'
+							})
+						}else{
+							res.render('admin/category-fail',{
+								userInfo:req.userInfo,
+								message:'修改失败'
+							})
+						}
+					})
+				}
+			})
+		}
+	})
+})
+
+router.get("/delete/:id",(req,res)=>{
+	let id = req.params.id;
+	CategoryModel.remove({_id:id},(err,raw)=>{
+		if(!err){
+			res.render('admin/category-success',{
+				userInfo:req.userInfo,
+				message:'删除成功',
+				url:'/category'
+			})
+		}else{
+			res.render('admin/category-fail',{
+				userInfo:req.userInfo,
+				message:'删除失败'
+			})
+		}
+	})
+})
+
 
 module.exports = router;
