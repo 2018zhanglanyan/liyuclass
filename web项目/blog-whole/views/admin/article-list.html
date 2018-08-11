@@ -24,7 +24,7 @@
     <td>{{ article.category.name }}</td>
     <td>{{ article.user.username }}</td>
 
-    <td>{{ article.createAt | date('Y年m月d号 H:i:s',-8*60) }}</td>
+    <td>{{ article.createAt | date('Y年m月d号 h:i:s',-8*60) }}</td>
     <td>{{ article.click }}</td>
     <td>
     	<a href="/view/{{ article._id.toString() }}">查看</a>

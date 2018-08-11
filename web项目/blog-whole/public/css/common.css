@@ -1,6 +1,3 @@
-/*刘向明博客样式*/
-
-
 /*公共样式*/
 body{
 	background: #efefef;
@@ -95,11 +92,11 @@ body{
 	margin-right: 10px;
 }
 /*分页按钮*/
-/*#paga .pagination>li>a:hover{
+#paga .pagination>li>a:hover{
 	color: #f65a8a;
 	background: #fff;
 	border-color: #fff;
-}*/
+}
 /*博主介绍开始 */
 .custom-panel .panel-heading{
 	background: #fff;
@@ -125,10 +122,14 @@ body{
 	width: 330px;
 	height: 330px;
 }*/
+#comment-btn{
+	    padding: 25px 10px;
+}
 /*底部开始*/
 footer{
 	text-align: center;
 }
+
 
 
 
