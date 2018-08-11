@@ -52,7 +52,25 @@ router.get("/articles",(req,res)=>{
 	})
 });
 
+
+// 显示详情页面
+
+router.get("/view/:id",(req,res)=>{
+	let id = req.params.id;
+	/*
+	ArticleModel.update({_id:id},{$inc:{click:1}})
+	.then((raw)=>{
+		ArticleModel.findById(id)
+		.then((acticle)=>{
+			console.log(acticle)
+		})
+	})
+	*/
+
+	ArticleModel.findByIdAndUpdate(id,{$inc:{click:1}},{new:true})
+	.then((raw,acticle)=>{
+		console.log(acticle);
+	})
+})
+
 module.exports = router;
-
-
-

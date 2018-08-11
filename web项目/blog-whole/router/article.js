@@ -134,7 +134,6 @@ router.post("/edit",(req,res)=>{
 	
 })
 
-
 router.get("/delete/:id",(req,res)=>{
 	let id = req.params.id;
 	ArticleModel.remove({_id:id},(err,raw)=>{
@@ -152,6 +151,5 @@ router.get("/delete/:id",(req,res)=>{
 		}
 	})
 })
-
 
 module.exports = router;

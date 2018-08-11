@@ -95,11 +95,11 @@ body{
 	margin-right: 10px;
 }
 /*分页按钮*/
-#paga .pagination>li>a:hover{
+/*#paga .pagination>li>a:hover{
 	color: #f65a8a;
 	background: #fff;
 	border-color: #fff;
-}
+}*/
 /*博主介绍开始 */
 .custom-panel .panel-heading{
 	background: #fff;
