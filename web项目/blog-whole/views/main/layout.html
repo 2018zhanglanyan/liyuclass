@@ -22,7 +22,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Hello博客</a>
+	      <a class="navbar-brand" href="#">LBB博客</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="top-nav">
 	      <ul class="nav navbar-nav">
@@ -144,8 +144,8 @@
 						    </a>
 						  </div>
 						  <div class="media-body">
-						    <h4 class="media-heading">Hello</h4>
-						   	不要对爱你的人太过刻薄，每个人都有脾气，为你忍下所有的怒气，仅仅因为那个人比你更心疼你。
+						    <h4 class="media-heading">LBB</h4>
+						    I can adapt to any situation and adjust to the changes in the environment. I thrive in a fluctuating environment.我可以适应任何环境，并随着环境的改变做出调整，可以在变化不定的环境中茁壮成长。
 						  </div>
 						</div>					 			
 					  </div>
@@ -161,7 +161,7 @@
 					  	<ul class="list-group">
 					  		<ul class="list-group">
 							{% for article in topArticles %}
-							<li class="list-group-item"><a href="/view/{{ article._id.toString() }}" class="link text-ellipsis">(有{{ article.click }}人看过我){{ article.title }}</a></li>
+							<li class="list-group-item"><a href="/view/{{ article._id.toString() }}" class="link text-ellipsis">(曾有{{ article.click }}人看过){{ article.title }}</a></li>
 							{% endfor %}				  
 						</ul>
 					  </div>
@@ -183,12 +183,13 @@
 	</div>
 	<footer>
 		<p>
-			Blog Design by <a href="">Hello</a> <a href="">豫ICP备123456789号-1.</a>
+			Blog Design by <a href="">LBB</a> <a href="">豫ICP备123456789号-1.</a>
 		</p>
 	</footer>
 </body>
 <script src="/lib/jQuery/jquery-1.12.4.min.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="/lib/moment/moment.js"></script>
+<script src="/js/pagination.js"></script>
 <script src="/js/index.js"></script>
 </html>
