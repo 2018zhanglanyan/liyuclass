@@ -1,81 +1,69 @@
-import React,{Component}from 'react';
-
-import store from './store/index.js';
-
-import { changeValueAction,addItemAction,deleteItemAction,getInitDataAction } from './store/actionCreator.js';
-
-import AppUI from './AppUI.js';
-
-import axios from 'axios';
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Input,Button,Row,Col,List } from 'antd';
-
-// 引入css
+import 'antd/dist/antd.css';
 import './App.css';
+import { changeValueAction,addItemAction,deleteItemAction,getInitDataAction } from './store/actionCreator.js'
 
-
-// 处理业务逻辑  容器组件
-class App extends Component{
-
-  constructor(props){
-    super(props);
-    //第一次初始化数据
-    this.state=store.getState();
-    //接受从store发来的数据
-    store.subscribe(()=>{
-      const state = this.setState(store.getState());
-    })
-    this.handleChange = this.handleChange.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
-  handleChange(e){
-    const action = changeValueAction(e.target.value);
-    //发送给store的数据
-    store.dispatch(action);
-  }
-
-  handleAdd(){
-    const action = addItemAction();
-    //发送给store的数据
-    store.dispatch(action);
-  }
-
-  handleDelete(index){
-    const action = deleteItemAction(index);
-    //发送给store的数据
-    store.dispatch(action);
-  }
-
+class App extends Component {
   componentDidMount(){
-    /*
-    axios
-    .get('http://127.0.0.1:3000/')
-    .then((data)=>{
-      const action = loadInitDataAction(data.data);
-      store.dispatch(action)
-    })
-    .catch((e)=>{
-      console.log(e)
-    })
-    */
-    //action是一个函数
-    const action = getInitDataAction();
-    store.dispatch(action)    
+    this.props.handleInit();
   }
-
-  render(){
-
-    return(
-       <AppUI 
-          value=  {this.state.value}
-          handleChange= {this.handleChange}
-          handleAdd=  {this.handleAdd}
-          list={this.state.list}
-          handleDelete={this.handleDelete}
-       />     
-    )
+  render() {
+    // console.log('render')
+    return (
+      <div className="App">
+         <Row>
+          <Col span={18} >
+            <Input value={this.props.value} 
+                   onChange={this.props.handleChange}
+            /> 
+          </Col>
+          <Col span={6} >
+            <Button type="primary" onClick={this.props.handleAdd}>增加</Button>
+          </Col>
+        </Row>
+        <List
+          style={{ marginTop: 10 }}
+          bordered
+          dataSource={this.props.list}
+          renderItem={(item,index) => (<List.Item onClick={()=>{this.props.handleDelete(index)}}>{item}</List.Item>)}
+        />
+      </div>
+    );
   }
+}
 
-};
-export default App;
+//store里面的state映射到组件的props上
+const mapStateToProps = (state)=>{
+  return {
+    value:state.value,
+    list:state.list
+  }
+}
+
+//把方法映射到组件的props上
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    handleChange:(e)=>{
+      const action = changeValueAction(e.target.value);
+      dispatch(action);
+    },
+    handleAdd:()=>{
+      const action = addItemAction();
+      dispatch(action)
+    },
+    handleDelete:(index)=>{
+      const action = deleteItemAction(index);
+      dispatch(action)
+    },
+    handleInit:()=>{
+      const action = getInitDataAction();
+      dispatch(action);
+    }
+  }
+}
+
+
+//connect方法是让指定的组件和store连接
+export default connect(mapStateToProps,mapDispatchToProps)(App);

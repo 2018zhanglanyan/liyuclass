@@ -2,6 +2,8 @@ import React,{ Component } from 'react';
 
 import { Input,Button,Row,Col,List } from 'antd';
 
+import 'antd/dist/antd.css';
+
 //引入css
 import './App.css';
 
