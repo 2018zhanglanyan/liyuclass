@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import axios from 'axios';
 import './index.css';
 const FormItem = Form.Item;
 
@@ -13,7 +14,18 @@ class Login extends Component{
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        // console.log('Received values of form: ', values);
+        axios({
+		  method: 'post',
+		  url: 'http://127.0.0.1:3000/admin/login',
+		  data: values
+		})
+		.then((result)=>{
+			console.log(result);
+		})
+		.catch((err)=>{
+			console.log(err);
+		})
       }
     });
   }
@@ -38,7 +50,12 @@ class Login extends Component{
 	          )}
 	        </FormItem>
 	        <FormItem>
-	          <Button type="primary" onClick={ this.handleSubmit } className="login-form-button">
+	          <Button 
+	          type="primary" 
+	          onClick={ this.handleSubmit } 
+	          className="login-form-button"
+	          loading={true}
+	          >
 	            登陆
 	          </Button>
 	        </FormItem>

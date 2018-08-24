@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2018-07-31 16:39:50
 * @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-02 15:10:40
+* @Last Modified time: 2018-08-02 15:53:39
 */
 const mongoose = require('mongoose');
 const UserModel = require('./models/user.js')
@@ -35,6 +35,7 @@ db.once('open',()=>{
 		}
 	})
 	*/
+	/*
 	UserModel.findById('5b62aab1e4fbf302f0db948c',(err,doc)=>{
 		if(!err){
 			// console.log(doc.createdAt)
@@ -44,6 +45,19 @@ db.once('open',()=>{
 		}else{
 			console.log('find error::',err)
 		}
+	})
+	*/
+	BlogModel.insertMany({
+		author:"5b62aab1e4fbf302f0db948c",
+		title:"今天好难受",
+		content:"我收到礼物不见了"
+
+	},(err,docs)=>{
+		if(!err){
+			console.log(docs)
+		}else{
+			console.log('insert error::',err)
+		}		
 	})
 
 });
